@@ -1,0 +1,53 @@
+TebLocalPlannerROS:
+ footprint_model:
+   type: "point"  
+ odom_topic: odom
+ map_frame: map
+ 
+ teb_autosize: True
+ dt_ref: 0.5
+ dt_hysteresis: 0.05
+
+
+ global_plan_overwrite_orientation: False
+ allow_init_with_backwards_motion: False
+ 
+ max_global_plan_lookahead_dist: 2
+ feasibility_check_no_poses: 1
+
+
+ max_vel_x: 0.5
+ max_vel_x_backwards: 0.5
+ max_vel_y: 0.0  # zero for a differential drive robot
+ max_vel_theta: 0.5
+  
+ acc_lim_x: 0.8
+ acc_lim_theta: 0.5  # 角速度加速限制，单位为弧度
+ fotprint_model:
+   type: "point"
+  
+
+ costmap_converter_plugin: "" # deactivate plugin
+ costmap_converter_spin_thread: True
+ costmap_converter_rate: 1
+
+ yaw_goal_tolerance: 1 # about 6 degrees  弧度  即 机器人朝向可以允许的误差
+ xy_goal_tolerance: 0.2 # 10 cm  x y方向可允许的误差
+ free_goal_vel: false
+
+ no_inner_iterations: 5 #在每个外循环迭代中调用的实际求解器迭代次数
+ no_outer_iterations: 4 #在每个外循环迭代中调用的实际求解器迭代次数
+ optimization_activate: True
+ optimization_verbose: False    #min_obstacle_dist:0.3
+ inflation_dist: 0.6
+ include_costmap_obstacles: true
+ dynamic_obstacle_inflation_dist: 0.6
+ include_costmap_obstacles: true
+ obstacle_poses_affected: 10
+ costmap_obstacles_behind_robot_dist: 1
+ penalty_epsilon: 0.2
+ weight_max_vel_x: 50
+ weight_max_vel_theta: 50
+ weight_acc_lim_x: 0.0
+ weight_optimaltime: 10
+
